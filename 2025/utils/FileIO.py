@@ -1,0 +1,26 @@
+import os
+
+
+def parse_file(path: str, kwargs) -> list:
+    link = os.path.realpath(path)
+    if kwargs["separator"] == "nl":
+        return _parse_lines(link)
+
+    if kwargs["separator"] == "comma":
+        return _parse_csv(link)
+
+    return []
+
+def _parse_lines(link: str) -> list:
+    with open(link) as f:
+        lines = f.readlines()
+        lines = [line.strip() for line in lines]
+
+    return lines
+
+def _parse_csv(link: str) -> list:
+    with open(link) as f:
+        lines = f.readline()
+        lines = [line.strip().split("-") for line in lines.split(",")]
+
+    return lines
