@@ -16,7 +16,7 @@ except ImportError:
 
 def solve():
     """Main function to solve the problem by processing input lines."""
-    lines = FileIO.parse_file(
+    lines = FileIO.parse(
         "/Users/sathishkumar/GitHub-nssathish/adventofcode20xx/2025/problem3/input.txt",
         {"separator": "nl"}
     )

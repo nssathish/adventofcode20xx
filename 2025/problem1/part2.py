@@ -3,7 +3,7 @@ from pycparser.ply.yacc import resultlimit
 import utils.FileIO as FileIO
 
 def solve() -> int:
-    lines = FileIO.parse_file('/Users/sathishkumar/GitHub-nssathish/adventofcode20xx/2025/problem1/input.txt')
+    lines = FileIO.parse('/Users/sathishkumar/GitHub-nssathish/adventofcode20xx/2025/problem1/input.txt')
 
     # set the initial position to 50
     result = 0

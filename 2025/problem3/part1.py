@@ -1,7 +1,7 @@
 import utils.FileIO as FileIO
 
 def solve():
-    lines = FileIO.parse_file("/Users/sathishkumar/GitHub-nssathish/adventofcode20xx/2025/problem3/input.txt", {"separator": "nl"})
+    lines = FileIO.parse("/Users/sathishkumar/GitHub-nssathish/adventofcode20xx/2025/problem3/input.txt", {"separator": "nl"})
     print(lines)
     count = 0
     for line in lines:

@@ -1,7 +1,7 @@
 import os
 
 
-def parse_file(path: str, kwargs) -> list:
+def parse(path: str, kwargs) -> list:
     link = os.path.realpath(path)
     if kwargs["separator"] == "nl":
         return _parse_lines(link)
