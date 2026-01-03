@@ -1,17 +1,30 @@
 from utils import FileIO as io
 
 def solve():
-	lines = io.parse("input1.txt", {"separator": "nl"})
+	lines = io.parse("input.txt", {"separator": "nl"})
 	items = [list(item) for item in lines]
 
 	valid_rolls = 0
-	for idx, item in enumerate(items):
-		valid_rolls += get_valid_rolls(item, idx, items)
+	previous_valid_rolls = 0
 
-	print(valid_rolls)
+	while True:
+		marked_items = []
+		for idx, item in enumerate(items):
+			rolls, marked_item = get_valid_rolls(item, idx, items)
+			valid_rolls += rolls
+			marked_items.append(marked_item)
 
-def get_valid_rolls(item: list, row: int, source: list[list]) -> int:
+		if valid_rolls == previous_valid_rolls:
+			break
+
+		previous_valid_rolls = valid_rolls
+		items = marked_items
+
+	return valid_rolls
+
+def get_valid_rolls(item: list, row: int, source: list[list]) -> list:
 	valid_rolls = 0
+	marked_item = []
 
 	for col, item in enumerate(item):
 		if item == '@':
@@ -20,9 +33,14 @@ def get_valid_rolls(item: list, row: int, source: list[list]) -> int:
 			side_rolls: int = get_side_rolls(row, col, source)
 
 			if top_rolls + bottom_rolls + side_rolls < 4:
+				marked_item.append('.')
 				valid_rolls += 1
+			else:
+				marked_item.append(item)
+		else:
+			marked_item.append(item)
 
-	return valid_rolls
+	return [valid_rolls, marked_item]
 
 
 def get_top_rolls(row: int, col: int, source: list[list]) -> int:
@@ -64,4 +82,4 @@ def get_side_rolls(row: int, col: int, source: list[list]) -> int:
 
 
 if __name__ == '__main__':
-	solve()
+	print(solve())
