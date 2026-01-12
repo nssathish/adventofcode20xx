@@ -3,10 +3,10 @@ import os
 
 def parse(path: str, kwargs) -> list:
     link = os.path.realpath(path)
-    if kwargs["separator"] == "nl":
+    if kwargs["separator"] == "\n":
         return _parse_lines(link)
 
-    if kwargs["separator"] == "comma":
+    if kwargs["separator"] == ",":
         return _parse_csv(link)
 
     return []
@@ -14,7 +14,7 @@ def parse(path: str, kwargs) -> list:
 def _parse_lines(link: str) -> list:
     with open(link) as f:
         lines = f.readlines()
-        lines = [line.strip() for line in lines]
+        lines = [line.strip('\n') for line in lines]
 
     return lines
 

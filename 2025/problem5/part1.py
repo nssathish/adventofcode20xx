@@ -1,7 +1,7 @@
 from utils import FileIO as iO
 
 def solve():
-    lines = iO.parse('input.txt', {'separator': 'nl'})
+    lines = iO.parse('input.txt', {'separator': '\n'})
 
     ranges = [list(map(int, line.split('-'))) for line in lines if '-' in line]
     ingredients = [int(line) for line in lines if '-' not in line and len(line)]

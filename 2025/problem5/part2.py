@@ -1,7 +1,7 @@
 from utils import FileIO as iO
 
 def solve():
-    lines = iO.parse('input.txt', {'separator': 'nl'})
+    lines = iO.parse('input.txt', {'separator': '\n'})
 
     ingredient_ids = sorted(list(map(int, line.split('-'))) for line in lines if '-' in line)
 

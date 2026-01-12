@@ -1,7 +1,7 @@
 from utils import FileIO as iO
 
 def main():
-    lines = iO.parse("input.txt", {'separator': 'nl'})
+    lines = iO.parse("input.txt", {'separator': '\n'})
     items = [list(map(lambda x: to_integer(x), [item for item in line.split(' ') if item != ''])) for line in lines[:len(lines) - 1]]
     print(items)
 

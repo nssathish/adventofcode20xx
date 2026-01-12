@@ -1,7 +1,8 @@
 import utils.FileIO as FileIO
 
 def solve() -> int:
-    lines = FileIO.parse('/Users/sathishkumar/GitHub-nssathish/adventofcode20xx/2025/problem1/input.txt')
+    lines = FileIO.parse('/Users/sathishkumar/GitHub-nssathish/adventofcode20xx/2025/problem1/input.txt', \
+                         {'separator': '\n'})
 
     # set the initial position to 50
     count = 0
